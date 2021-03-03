@@ -56,4 +56,43 @@ public class ListaEstatica {
 		toString += "]";
 		return toString;
 	}
+	
+	public boolean estaVazia() {
+		return (tamanho == 0);
+	}
+	
+	public ListaEstatica copiar() {
+		ListaEstatica nova = new ListaEstatica();
+		for (int i=0; i < tamanho; i++) {
+			nova.inserir(info[i]);
+		}
+		return nova;
+	}
+	
+	public void concatenar(ListaEstatica outra) {
+		for (int i=0; i < outra.getTamanho(); i++) {
+			this.inserir(outra.pegar(i));
+		}
+	}
+	
+	public ListaEstatica dividir() {
+		ListaEstatica nova = new ListaEstatica();
+		int qtde = tamanho/2;
+		for (int i=qtde; i < tamanho; i++) {
+			nova.inserir(info[i]);
+		}
+		tamanho = qtde;
+		return nova;
+	}
+	
+	public int getTamanho() {
+		return tamanho;
+	}
+	
+	public int pegar(int posicao) {
+		if (posicao >= tamanho) {  // posição inválida
+			throw new ArrayIndexOutOfBoundsException("Posição inválida "+posicao);
+		}
+		return info[posicao];
+	}
 }
