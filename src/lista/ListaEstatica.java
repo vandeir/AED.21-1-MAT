@@ -25,4 +25,35 @@ public class ListaEstatica {
 		}
 		info = novo;
 	}
+	
+	public int buscar(int valor) {
+		for (int i=0; i < tamanho; i++) {
+			if (info[i] == valor) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public void retirar(int valor) {
+		int posicao = this.buscar(valor);
+		if (posicao != -1) {
+			for (int i = posicao; i < tamanho-1; i++) {
+				info[i] = info[i+1];
+			}
+			tamanho--;
+		}
+	}
+	
+	public String toString() {
+		String toString = "[";
+		for (int i = 0; i < tamanho; ++i) {
+			toString += info[i];
+			if (i != tamanho-1) {
+				toString += ", ";
+			}
+		}
+		toString += "]";
+		return toString;
+	}
 }
