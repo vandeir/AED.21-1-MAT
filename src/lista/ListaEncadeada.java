@@ -74,20 +74,68 @@ public class ListaEncadeada implements Lista {
 
 	@Override
 	public Lista copiar() {
-		// TODO Auto-generated method stub
-		return null;
+		ListaEncadeada nova = new ListaEncadeada();
+		NoLista p = this.primeiro;
+		while (p != null) {
+			nova.inserir(p.getInfo());
+			p = p.getProximo();
+		}
+		return nova;
 	}
 
 	@Override
 	public void concatenar(Lista outra) {
-		// TODO Auto-generated method stub
+		for (int i = 0; i < outra.getTamanho(); i++) {
+			this.inserir(outra.pegar(i));
+		}
+	}
 
+	@Override
+	public Lista dividir1() {
+		ListaEncadeada nova = new ListaEncadeada();
+
+		int qtde = this.getTamanho() / 2;
+
+		int qtdeCopiados = 0;
+		int[] copiados = new int[this.getTamanho()];
+
+		for (int i = qtde; i < this.getTamanho(); i++) {
+			nova.inserir(this.pegar(i));
+			copiados[qtdeCopiados] = this.pegar(i);
+			qtdeCopiados++;
+		}
+
+		for (int j = 0; j < qtdeCopiados; j++) {
+			this.retirar(copiados[j]);
+		}
+
+		return nova;
 	}
 
 	@Override
 	public Lista dividir() {
-		// TODO Auto-generated method stub
-		return null;
+		ListaEncadeada nova = new ListaEncadeada();
+		int qtde = this.getTamanho() / 2;
+		NoLista nl = this.primeiro;
+		NoLista anterior=null;
+		int index = 0;
+		while (index < qtde) {
+			anterior = nl;
+			nl = nl.getProximo();
+			index++;
+		}
+
+		// atualizando a nova lista
+		nova.primeiro = nl;
+		nova.ultimo = this.ultimo;
+		nova.qtdeElementos = this.qtdeElementos - qtde;
+		
+		// atualizando a lista atual
+		this.ultimo = anterior;
+		ultimo.setProximo(null);
+		this.qtdeElementos = qtde;
+		
+		return nova;
 	}
 
 	@Override
@@ -97,8 +145,8 @@ public class ListaEncadeada implements Lista {
 
 	@Override
 	public int pegar(int posicao) {
-		if (posicao >= this.qtdeElementos) {  // posição inválida
-			throw new ArrayIndexOutOfBoundsException("Posição inválida "+posicao);
+		if (posicao >= this.qtdeElementos) { // posição inválida
+			throw new ArrayIndexOutOfBoundsException("Posição inválida " + posicao);
 		}
 		NoLista p = this.primeiro;
 		int contPosicao = 0;

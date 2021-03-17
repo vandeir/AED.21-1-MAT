@@ -8,12 +8,13 @@ public class TesteListaEncadeada {
 			lista.inserir(12);
 			lista.inserir(28);
 			lista.inserir(91);
+			lista.inserir(50);
 			System.out.println("Lista original = "+lista);
 			System.out.println("50 = "+lista.buscar(50));
 			System.out.println("91 = "+lista.buscar(91));
 			System.out.println("0 = "+lista.buscar(0));
 			
-/*			Lista novaLista;
+			Lista novaLista;
 			novaLista = lista.dividir();
 			System.out.println("Primeira lista (original pela metade) = "+lista);
 			System.out.println("Lista criada pela divisão = "+novaLista);
@@ -31,7 +32,7 @@ public class TesteListaEncadeada {
 			terceira.retirar(200);
 			System.out.println("Lista original (sem 100) = "+novaLista);
 			System.out.println("Lista copiada (sem 200) = "+terceira);
-			*/
+			
 
 	}
 

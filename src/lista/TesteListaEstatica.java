@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 public class TesteListaEstatica {
 	public static void main(String[] args) {
-		Lista lista = new ListaEstatica();
-		ArrayList<Integer> listaParalela = new ArrayList();
+		Lista<Integer> lista = new ListaEstatica<>();
+		Lista<String> compras = new ListaEstatica<>();
+		ArrayList<Integer> listaParalela = new ArrayList<>();
 		
 		listaParalela.add(50);
 		listaParalela.add(-15);
@@ -21,7 +22,12 @@ public class TesteListaEstatica {
 		lista.inserir(91);
 		System.out.println("Lista original = "+lista);
 		
-		Lista novaLista;
+		compras.inserir("agulhas");
+		compras.inserir("vacina");
+		compras.inserir("seringas");
+		System.out.println("Lista de compras = "+compras);
+		
+		Lista<Integer> novaLista;
 		novaLista = lista.dividir();
 		System.out.println("Primeira lista (original pela metade) = "+lista);
 		System.out.println("Lista criada pela divisão = "+novaLista);
@@ -33,7 +39,7 @@ public class TesteListaEstatica {
 		novaLista.concatenar(lista);
 		System.out.println("Lista concatenada (A+B) = "+novaLista);
 		
-		Lista terceira = novaLista.copiar();
+		Lista<Integer> terceira = novaLista.copiar();
 		System.out.println("Lista copiada = "+terceira);
 		novaLista.retirar(100);
 		terceira.retirar(200);

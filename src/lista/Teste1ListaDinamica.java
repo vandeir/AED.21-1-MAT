@@ -9,6 +9,7 @@ public class Teste1ListaDinamica {
 			lista.inserir(12);
 			lista.inserir(28);
 			lista.inserir(91);
+			lista.inserir(50);
 			System.out.println("Lista original = "+lista);
 			System.out.println("Buscar 50 = "+lista.buscar(50));
 			System.out.println("Buscar 91 = "+lista.buscar(91));
