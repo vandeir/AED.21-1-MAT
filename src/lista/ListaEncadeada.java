@@ -43,15 +43,28 @@ public class ListaEncadeada implements Lista {
 				return posicao;
 			}
 			posicao++;
-			p = p.getProximo();			
+			p = p.getProximo();
 		}
 		return -1;
 	}
 
 	@Override
 	public void retirar(int valor) {
-		// TODO Auto-generated method stub
+		NoLista anterior = null;
+		NoLista p = this.primeiro;
 
+		while (p != null && p.getInfo() != valor) {
+			anterior = p;
+			p = p.getProximo();
+		}
+		if (p != null) {
+			if (anterior == null) {
+				this.primeiro = p.getProximo();
+			} else {
+				anterior.setProximo(p.getProximo());
+			}
+			this.qtdeElementos--;
+		}
 	}
 
 	@Override
@@ -84,8 +97,20 @@ public class ListaEncadeada implements Lista {
 
 	@Override
 	public int pegar(int posicao) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (posicao >= this.qtdeElementos) {  // posição inválida
+			throw new ArrayIndexOutOfBoundsException("Posição inválida "+posicao);
+		}
+		NoLista p = this.primeiro;
+		int contPosicao = 0;
+		while (p != null) {
+			if (contPosicao == posicao) {
+				return p.getInfo();
+			}
+			contPosicao++;
+			p = p.getProximo();
+		}
+		// pela lógica nunca deve chegar aqui
+		return Integer.MIN_VALUE;
 	}
 
 }
