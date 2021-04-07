@@ -30,7 +30,7 @@ public class ListaEstatica<T> implements Lista<T> {
 	@Override
 	public int buscar(T valor) {
 		for (int i=0; i < tamanho; i++) {
-			if (info[i] == valor) {
+			if (info[i].equals(valor)) {
 				return i;
 			}
 		}

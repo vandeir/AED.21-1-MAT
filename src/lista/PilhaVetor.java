@@ -50,9 +50,53 @@ public class PilhaVetor<T> implements Pilha<T> {
 
 	public String toString() {
 		String str = "[Topo ";
-		for (int i=tamanho-1; i >= 0; i--) {
-			str+=info[i]+", ";
+		for (int i = tamanho - 1; i >= 0; i--) {
+			str += info[i] + ", ";
 		}
-		return str+"base]";
+		return str + "base]";
+	}
+
+	private boolean compararElementos(PilhaVetor<T> p2) {
+		boolean encontrado = false;
+		int contador = 0;
+		for (int i = 0; i < this.tamanho; i++) {
+			if (!info[i].equals(p2.get(i))) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	private T get(int posicao) {
+		return this.info[posicao];
+	}
+	private int getTamanho() {
+		return this.tamanho;
+	}
+
+	public int comparar(PilhaVetor<T> p2) {
+		if (this.tamanho < p2.getTamanho()) {  // menor
+			return -1;
+		}
+		if (this.tamanho == p2.getTamanho()) {  // mesmo tamanho
+			if (this.compararElementos(p2))
+				return 0;
+			else
+				return 1;
+		} else {   // maior
+			return 1;
+		}
+
+		/*
+		if (this.tamanho == p2.tamanho && this.compararElementos(p2)) {
+			return 0;
+		} else if (this.tamanho < p2.tamanho) {
+			return -1;
+		} else if ((this.tamanho > p2.tamanho) || !this.compararElementos(p2)) {
+			return 1;
+		}
+		// nunca chegue aqui
+		return 2;
+		*/
 	}
 }
