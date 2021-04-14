@@ -160,5 +160,4 @@ public class ListaEncadeada<T> implements Lista<T> {
 		// pela lógica nunca deve chegar aqui
 		return null;
 	}
-
 }
