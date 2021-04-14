@@ -14,4 +14,19 @@ public class ArvoreBinaria<T> {
 	public boolean vazia() {
 		return (raiz == null);
 	}
+	
+	public NoArvoreBinaria<T> pertence(T procurado){
+		if (this.vazia()) {
+			return null;
+		}
+		return raiz.pertence(procurado);
+	}
+	
+	@Override
+	public String toString() {
+		if (this.vazia()) {
+			return "<>";
+		}
+		return raiz.imprimePre();
+	}
 }

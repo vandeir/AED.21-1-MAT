@@ -16,9 +16,14 @@ public class TesteArvoreBinaria {
 		
 		ArvoreBinaria<Integer> arvore = new ArvoreBinaria<>();
 		System.out.println(arvore.vazia());
-		
+		System.out.println(arvore.toString());
 		arvore.setRaiz(no1);
 		System.out.println(arvore.vazia());
+		System.out.println(arvore.toString());
+		
+		System.out.println("Procurar 7 = " + arvore.pertence(7));
+		System.out.println("Procurar 1 = " + arvore.pertence(1));
+		System.out.println("Procurar 33 = " + arvore.pertence(33));
 
 	}
 
