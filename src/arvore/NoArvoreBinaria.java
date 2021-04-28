@@ -17,6 +17,31 @@ public class NoArvoreBinaria<T> {
 		this.info = info;
 	}
 
+	public T getInfo() {
+		return info;
+	}
+
+	public void setInfo(T info) {
+		this.info = info;
+	}
+
+	public NoArvoreBinaria<T> getEsq() {
+		return esq;
+	}
+
+	public void setEsq(NoArvoreBinaria<T> esq) {
+		this.esq = esq;
+	}
+
+	public NoArvoreBinaria<T> getDir() {
+		return dir;
+	}
+
+	public void setDir(NoArvoreBinaria<T> dir) {
+		this.dir = dir;
+	}
+
+
 	public String imprimePre() {
 		String str = "<" + this.info; // trata raiz
 		if (this.esq != null) {
