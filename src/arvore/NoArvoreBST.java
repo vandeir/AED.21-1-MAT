@@ -40,4 +40,8 @@ public class NoArvoreBST<T extends Comparable> extends NoArvoreBinaria<T> {
 		}
 
 	}
+	
+	public void retirar(T info) {
+	
+	}
 }

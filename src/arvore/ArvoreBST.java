@@ -6,7 +6,7 @@ public class ArvoreBST<T extends Comparable> extends ArvoreBinariaAbstract<T> {
 		if (this.vazia()) {
 			this.setRaiz(new NoArvoreBST<>(info));
 		} else {
-			((NoArvoreBST<T>)this.getRaiz()).inserir(info);
+			((NoArvoreBST<T>) this.getRaiz()).inserir(info);
 		}
 	}
 
@@ -14,9 +14,14 @@ public class ArvoreBST<T extends Comparable> extends ArvoreBinariaAbstract<T> {
 		if (this.vazia()) {
 			return null;
 		} else {
-			return ((NoArvoreBST<T>)this.getRaiz()).buscar(procurado);
+			return ((NoArvoreBST<T>) this.getRaiz()).buscar(procurado);
 		}
 	}
 
+	public void retirar(T info) {
+		if (!this.vazia()) {
+			((NoArvoreBST<T>) this.getRaiz()).retirar(info);
+		}
+	}
 
 }
