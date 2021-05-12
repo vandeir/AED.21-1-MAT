@@ -10,5 +10,7 @@ public interface Fila<T> {
 	boolean estaVazia();
 
 	void liberar();
+	
+	// teste
 
 }
